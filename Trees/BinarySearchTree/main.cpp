@@ -18,7 +18,7 @@ int main()
 		cout << "5: UNIVAL [Given a binary tree, we need to count the number of unival subtrees (all nodes that have the same value) elements]" << endl;
 		cout << "10: EXIT " << endl;
 		cout << "==================================================================" << endl;
-		cout << "Enter you choice : ";
+		cout << "Enter your choice : ";
 
 		cin >> n;
 

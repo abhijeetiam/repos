@@ -33,8 +33,6 @@ public:
 		DOUBLE_PARENT
 	};
 
-public:
-
 	static BSTNode* Create(int data);
 	static BSTNode* Insert(BSTNode* root, int data);		//Should return BSTNode* since we need Create a node and link it to existing tree
 	static BSTNode* Delete(BSTNode* root, int data);		//Should return BSTNode* since we need Delete a node and link it to existing tree
