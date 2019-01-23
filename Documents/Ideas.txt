@@ -1,0 +1,5 @@
+(1) Sorted Input - Binary Search or Modified Binary Search 
+(2) Shortest Path/Distance/Hops - BFS/Queue/Only Iterative
+(3) Nodes/Vertices + Relation between vertices/Edges - Graph problem
+(4) Rolling Hash - Can be used for substring checks for pattern matching on largre input streams or huge files comparisons
+(5) AutoComplete Functionality - Definitely uses suffix trie

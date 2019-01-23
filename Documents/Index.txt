@@ -1,0 +1,89 @@
+Sorting = PARTIAL LEFT
+- Teachable = DONE
+- Quiz = DONE
+- Sunday Lecture = DONE
+- Homework = LEFT
+- Test = LEFT
+
+Linked List = FULL LEFT		//Quick
+- Teachable = LEFT
+- Quiz = LEFT
+- Sunday Lecture = LEFT
+- Homework = LEFT
+- Test = LEFT
+
+Recursion = FULL LEFT
+- Teachable = LEFT
+- Quiz = LEFT
+- Sunday Lecture = LEFT
+- Homework = LEFT
+- Test = LEFT
+
+Trees = PARTIAL LEFT
+- Teachable = DONE
+- Quiz = DONE
+- Sunday Lecture = 1/2 DONE
+- Homework = SOME Homework
+- Test = LEFT
+
+Graphs = PARTIAL LEFT
+- Teachable = DONE
+- Quiz = LEFT
+- Sunday Lecture = 1/2 DONE
+- Homework = LEFT
+- Test = LEFT
+
+Strings/Tries = PARTIAL LEFT
+- Teachable = DONE
+- Quiz = LEFT
+- Sunday Lecture = LEFT
+- Homework = LEFT
+- Test = LEFT
+
+Dynamic Programming = PARTIAL LEFT
+- Teachable = DONE
+- Quiz = LEFT
+- Sunday Lecture = LEFT
+- Homework = LEFT
+- Test = LEFT
+
+Scalable Systems = PARTIAL LEFT
+- Teachable = DONE
+- Quiz = LEFT
+- Sunday Lecture = LEFT
+- Homework = LEFT
+- Test = LEFT
+
+Concurrency = PARTIAL LEFT
+- Teachable = DONE
+- Quiz = DONE
+- Sunday Lecture = LEFT
+- Homework = LEFT
+- Test = LEFT
+
+AdHoc Problems = PARTIAL LEFT
+- Teachable = DONE
+- Quiz = LEFT
+- Sunday Lecture = LEFT
+- Homework = LEFT
+- Test = LEFT
+
+Object Oriented Modelling/Design Patterns = PARTIAL LEFT
+- Teachable = DONE
+- Quiz = LEFT
+- Sunday Lecture = LEFT
+- Homework = LEFT
+- Test = LEFT
+
+Behavioral = FULL LEFT (3 hour video)
+- Teachable = DONE
+- Quiz = LEFT
+- Sunday Lecture = LEFT
+- Homework = LEFT
+- Test = LEFT
+
+
+*** C++17 Templates/Metaprogramming
+*** Design Patterns
+*** Python
+
