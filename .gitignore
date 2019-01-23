@@ -4,6 +4,7 @@
 # But not .cpp/.h
 !*.cpp
 !*.h
+!*.txt
 # Or directories
 !*/
 !.gitignore
