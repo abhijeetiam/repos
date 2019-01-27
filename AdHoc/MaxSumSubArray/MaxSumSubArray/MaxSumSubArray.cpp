@@ -1,3 +1,8 @@
+/*SubArray is a subset of elements from a set but have to be contiguous
+  Maximum number of subarray for n elements is n^2
+  Maximum number of subset for n elements is 2^n
+  Find the maximum total of the subarray*/
+
 #include <iostream>
 #include <algorithm>
 
