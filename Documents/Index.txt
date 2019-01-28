@@ -5,9 +5,9 @@ Sorting = PARTIAL LEFT
 - Homework = LEFT
 - Test = LEFT
 
-Linked List = FULL LEFT		//Quick
-- Teachable = LEFT
-- Quiz = LEFT
+Linked List = PARTIAL LEFT
+- Teachable = DONE
+- Quiz = DONE
 - Sunday Lecture = LEFT
 - Homework = LEFT
 - Test = LEFT
@@ -63,7 +63,7 @@ Concurrency = PARTIAL LEFT
 
 AdHoc Problems = PARTIAL LEFT
 - Teachable = DONE
-- Quiz = LEFT
+- Quiz = DONE
 - Sunday Lecture = LEFT
 - Homework = LEFT
 - Test = LEFT
