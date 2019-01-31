@@ -91,6 +91,21 @@ LinkedListNode* _insert_node_into_singlylinkedlist(LinkedListNode* head, LinkedL
 	return tail;
 }
 
+void printList(LinkedListNode* head)
+{
+	LinkedListNode* temp = head;
+	while (temp) {
+		cout << temp->val;
+
+		if (temp->next) {
+			cout << "->";
+		}
+
+		temp = temp->next;
+	}
+	cout << endl;
+}
+
 /*
  * Complete the function below.
  */
@@ -119,26 +134,76 @@ LinkedListNode* swap_nodes(LinkedListNode* head, int k) {
 	cout << "Linked list length = " << len << endl;
 
 	back = head;
+
+	printList(head);
 	
 	for (int i = 1; i < k - 1; i++)
 		front = front->next;
+	
+	cout << "Front = " << endl;
+	printList(front);
+
+	cout << "Head = " << endl;
+	printList(head);
 
 	LinkedListNode* front_2 = front->next;
 	LinkedListNode* front_3 = front->next;
 
+	cout << "Front_2 = " << endl;
+	printList(front_2);
+	printList(head);
+
+	cout << "Front_3 = " << endl;
+	printList(front_3);
+	printList(head);
+
 	for (int i = 1; i < len - k; i++)
 		back = back->next;
 
+	cout << "Back = " << endl;
+	printList(back);
+	printList(head);
+
 	LinkedListNode* back_2 = back->next;
+	LinkedListNode* back_3 = back->next;
+
+	cout << "Back_2 = " << endl;
+	printList(back_2);
+	printList(head);
 
 	front->next = back_2;
-	back->next = front_2;
 
-	//front = front->next;
-	//back = back->next;
+	cout << "Front->next = " << endl;
+	printList(front->next);
+	printList(head);
 
-	front_2->next = back_2->next;
-	back_2->next = front_3->next;
+	//cout << "Back->next = " << endl;
+	//printList(back->next);
+	//printList(head);
+
+	back_2->next = front_2->next;
+	
+	cout << "Back_2->next = " << endl;
+	//printList(back_2->next);
+	//printList(head);
+
+	back->next = front_3;
+	
+	cout << "Back->next = " << endl;
+	//printList(back->next);
+	//printList(head);
+
+	front_3->next = back_3->next;
+	
+	cout << "Front_3->next = " << endl;
+	//printList(front_3->next);
+	//printList(head);
+
+	back_3->next->next = NULL;
+	
+	cout << "Back_2->next = " << endl;
+	//printList(back_2->next);
+	//printList(head);
 
 	return head;
 }
