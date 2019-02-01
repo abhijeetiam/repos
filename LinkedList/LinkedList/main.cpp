@@ -18,10 +18,11 @@ int main()
 		cout << "5: SEARCH" << endl;
 		cout << "6: UPDATE" << endl;
 		cout << "7: REVERSE" << endl;
-		cout << "8: SORT" << endl;
-		cout << "9: LENGTH" << endl;
-		cout << "10: PRINT" << endl;
-		cout << "11: EXIT " << endl;
+		cout << "8: REVERSE_STACK" << endl;
+		cout << "9: SORT" << endl;
+		cout << "10: LENGTH" << endl;
+		cout << "11: PRINT" << endl;
+		cout << "12: EXIT " << endl;
 		cout << "==================================================================" << endl;
 		cout << "Enter your choice : ";
 
@@ -118,6 +119,13 @@ int main()
 			{
 				cout << "Reversing the linked list......" << endl;
 				list.Reverse();
+				break;
+			}
+
+			case LinkedList::REVERSE_STACK:
+			{
+				cout << "Reversing the linked list using Stack data structure......" << endl;
+				list.ReverseUsingStack();
 				break;
 			}
 

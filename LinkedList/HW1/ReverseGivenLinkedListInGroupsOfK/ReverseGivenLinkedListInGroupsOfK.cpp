@@ -155,8 +155,9 @@ void printList(LinkedListNode* head)
 	cout << endl;
 }
 
-//To reverse a linked list
-LinkedListNode* Reverse(LinkedListNode* head)
+//To reverse a linked list using a stack data structure
+//Complexity: Time = O(n), Space = O(n)
+LinkedListNode* ReverseUsingStack(LinkedListNode* head)
 {
 	std::stack<LinkedListNode*> rev;
 
@@ -187,6 +188,32 @@ LinkedListNode* Reverse(LinkedListNode* head)
 	}
 
 	curr->next = NULL;	//IMPORTANT: Make sure you set last nodes next_ pointer point to NULL or infinite loop
+	return head;
+}
+
+//To reverse a linked list
+//Complexity: Time = O(n), Space = O(1)
+LinkedListNode* Reverse(LinkedListNode* head)
+{
+	if (head == NULL)
+	{
+		//cout << "Cannot reverse an empty linked list" << endl;
+		return head;
+	}
+
+	LinkedListNode* curr = head;
+	LinkedListNode* prev = NULL;
+	LinkedListNode*	Next = NULL;
+
+	while (curr != NULL)
+	{
+		Next = curr->next;
+		curr->next = prev;
+		prev = curr;
+		curr = Next;
+	}
+
+	head = prev;
 	return head;
 }
 
@@ -244,6 +271,7 @@ LinkedListNode* reverse_linked_list_in_groups_of_k(LinkedListNode* head, int k)
 		curr = temp->next;				//marking the 1st node of the next group
 		temp->next = NULL;				//marking the group to NULL to end the linked list so we can reverse it
 
+		//LinkedListNode* revHead = ReverseUsingStack(head);
 		LinkedListNode* revHead = Reverse(head);
 		head = curr;
 

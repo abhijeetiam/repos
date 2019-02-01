@@ -15,6 +15,7 @@ private:
 	Node* head_;
 	Node* curr_;
 	Node* prev_;
+	Node* Next;
 	int mLength_;
 	
 public:
@@ -31,10 +32,11 @@ public:
 		SEARCH,
 		UPDATE,
 		REVERSE,
+		REVERSE_STACK,
 		SORT,
 		LENGTH,
 		PRINT,
-		EXIT = 11
+		EXIT = 12
 	};
 	
 	void InsertAtBeginning(const int data);
@@ -44,6 +46,7 @@ public:
 	bool Search(const int data);
 	void Update(const int position, const int data);
 	void Reverse();
+	void ReverseUsingStack();
 	void Sort();
 	int GetLength();
 	void Print();

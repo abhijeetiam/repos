@@ -167,8 +167,31 @@ void LinkedList::Update(const int position, const int data)
 	curr_->data_ = data;
 }
 
-//Used stack data structure for reversing when popping. Hence Space = O(n), Time = O(n)
+// Reversing a linked list.Hence Space = O(1), Time = O(n)
 void LinkedList::Reverse()
+{
+	if (head_ == NULL)
+	{
+		cout << "Cannot reverse an empty linked list" << endl;
+		return;
+	}
+
+	curr_ = head_;
+	prev_ = NULL;
+	Next = NULL;
+
+	while (curr_ != NULL)
+	{
+		Next = curr_->next_;
+		curr_->next_ = prev_;
+		prev_ = curr_;
+		curr_ = Next;
+	}
+	head_ = prev_;
+}
+
+//Used stack data structure for reversing when popping. Hence Space = O(n), Time = O(n)
+void LinkedList::ReverseUsingStack()
 {
 	std::stack<Node*> rev;
 
