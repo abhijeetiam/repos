@@ -217,6 +217,26 @@ Generated pascal’s triangle will be:
 1 4 6 4 1
 
 1 5 10 10 5 1
+
+
+vector<vector<int>> findPascalTriangle(int n)
+{
+	int M = 1000000000 + 7;
+	vector<vector<int>> out( n );
+	for ( int i = 0; i < n; i++)
+	{
+		 out[i] = vector<int>(i+1);
+		 for ( int j = 0; j <= i; j++)
+		 {
+			 if( ( j == 0 ) || ( i == j ))  out[i][j] = 1;
+			 else
+			   out[i][j] = (out[i-1][j] + out[i-1][j-1]) % M;
+		 }
+	}
+	// Write your code here
+	return out;
+}
+
 */
 
 #include <iostream>

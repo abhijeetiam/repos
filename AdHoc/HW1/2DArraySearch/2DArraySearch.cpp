@@ -165,6 +165,30 @@ Explanation 2:
 
 Given number x=12 and x=32 are not present in arr. Hence, "not present" returned for both of the queries
 
+// Time: O(n + m)
+// Space: O(1)
+
+string isPresent(vector<vector<int>> &arr, int x)
+{
+	int i, j;
+
+	if (arr.size() == 0 || arr[0].size() == 0)
+		return "not present";
+
+	i = 0;
+	j = arr[0].size() - 1;
+	while (i < arr.size() && j >= 0) {
+		if (arr[i][j] == x)
+			return "present";
+
+		if (arr[i][j] < x)
+			i++;
+		else
+			j--;
+	}
+	return "not present";
+}
+
 */
 
 

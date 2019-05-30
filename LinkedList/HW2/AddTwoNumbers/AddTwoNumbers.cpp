@@ -43,6 +43,156 @@ result = 4->3->5
 
 Explanation 2
 As l_a = 5->8->3 means number 385 and l_b = 9->4->1 means number 149. Sum of 385 and 149 is 534 so, result will represent 4->3->5.
+
+
+bool check_if_zero(int sum, int carry_over, SinglyLinkedListNode* node)
+{
+	if (! node || sum != 0) {
+		return true;
+	}
+	return false;
+}
+
+void add_val(
+	SinglyLinkedListNode** l_prev, SinglyLinkedListNode** r_prev, SinglyLinkedListNode** prev,
+	int val,
+	int num_zeros)
+{
+	for (int i = 0; i < num_zeros; ++i) {
+		SinglyLinkedListNode *p = nullptr;
+		if (*l_prev) {
+			p = *l_prev;
+			*l_prev = (*l_prev)->next;
+		} else if (*r_prev) {
+			p = *r_prev;
+			*r_prev = (*r_prev)->next;
+		}
+		p->data = val % 10;
+		if (*prev) {
+			(*prev)->next = p;
+		}
+		*prev = p;
+	}
+}
+
+SinglyLinkedListNode* addTwoNumbers1(SinglyLinkedListNode* l_a, SinglyLinkedListNode* l_b) {
+	if (! l_a && ! l_b) {
+		return nullptr;
+	}
+	if (l_a && ! l_b) {
+		return l_a;
+	}
+	if (! l_a && l_b) {
+		return l_b;
+	}
+
+	SinglyLinkedListNode* l_next = l_a;
+	SinglyLinkedListNode* r_next = l_b;
+	SinglyLinkedListNode* l_prev = l_a;
+	SinglyLinkedListNode* r_prev = l_b;
+	SinglyLinkedListNode* prev = nullptr;
+
+	int carry_over = 0;
+	bool pending_0s = false;
+	int num_pending_0s = 0;
+
+	// do not delete unused nodes.
+	while (l_next || r_next) {
+		int l = (l_next) ? l_next->data : 0;
+		int r = (r_next) ? r_next->data : 0;
+		int sum = l + r + carry_over;
+
+		bool should_store_sum = check_if_zero(sum, carry_over, prev);
+		if (should_store_sum) {
+			if (pending_0s) {
+				pending_0s = false;
+				add_val(&l_prev, &r_prev, &prev, 0, num_pending_0s);
+				num_pending_0s = 0;
+			}
+			add_val(&l_prev, &r_prev, &prev, sum, 1);
+		} else {
+			pending_0s = true;
+			num_pending_0s++;
+		}
+
+		carry_over = sum / 10;
+		if (l_next) { l_next = l_next->next; }
+		if (r_next) { r_next = r_next->next; }
+	}
+
+	// if both have ended, store the carry over
+	if (carry_over > 0) {
+		// store in rprev, this works since we start using rprev
+		// if l_prev reaches null.
+		prev->next = r_prev;
+		r_prev->data = carry_over;
+		r_prev->next = nullptr;
+	} else {
+		prev->next = nullptr;
+	}
+
+	return l_a;
+}
+
+SinglyLinkedListNode* addTwoNumbers(SinglyLinkedListNode* l_a, SinglyLinkedListNode* l_b) {
+	if (! l_a && ! l_b) {
+		return nullptr;
+	}
+	if (l_a && ! l_b) {
+		return l_a;
+	}
+	if (! l_a && l_b) {
+		return l_b;
+	}
+
+	SinglyLinkedListNode* l_next = l_a;
+	SinglyLinkedListNode* r_next = l_b;
+	SinglyLinkedListNode* r_prev = l_b;
+	SinglyLinkedListNode* prev = nullptr;
+
+	int carry_over = 0;
+	// do not delete unused nodes.
+	while (l_next || r_next) {
+		int l = (l_next) ? l_next->data : 0;
+		int r = (r_next) ? r_next->data : 0;
+		int sum = l + r + carry_over;
+
+		carry_over = sum / 10;
+		SinglyLinkedListNode* node = nullptr;
+		if (l_next) {
+			node = l_next;
+		} else {
+			node = r_prev;
+			r_prev = r_prev->next;
+		}
+		node->data = sum % 10;
+		if (! prev) {
+			prev = node;
+		} else {
+			prev->next = node;
+			prev = node;
+		}
+
+		if (l_next) { l_next = l_next->next; }
+		if (r_next) { r_next = r_next->next; }
+
+		// if both have ended, store the carry over and break
+		if (! l_next && ! r_next) {
+			if (carry_over > 0) {
+				// store in rprev, this works since we start using rprev
+				// if l_prev reaches null.
+				prev->next = r_prev;
+				r_prev->data = carry_over;
+				r_prev->next = nullptr;
+			} else {
+				prev->next = nullptr;
+			}
+			break;
+		}
+	}
+	return l_a;
+}
+
 */
 
 #include <string>

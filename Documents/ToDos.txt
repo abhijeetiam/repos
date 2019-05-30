@@ -1,0 +1,5 @@
+(0) Scalable, Concurrency tests Multipel choice
+(1) Python
+(2) C++14 and C++17 advantages and usage
+(3) C++17 Templates/Metaprogramming
+(4) Design Patterns

@@ -2,84 +2,96 @@ Sorting = PARTIAL LEFT
 - Teachable = DONE
 - Quiz = DONE
 - Sunday Lecture = DONE
-- Homework = LEFT
+- Homework1 = LEFT
+- Homework2 = LEFT
 - Test = LEFT
 
 Linked List = PARTIAL LEFT
 - Teachable = DONE
 - Quiz = DONE
 - Sunday Lecture = LEFT
-- Homework = LEFT
+- Homework1 = DONE
+- Homework2 = PARTIAL
 - Test = LEFT
 
 Recursion = FULL LEFT
 - Teachable = LEFT
 - Quiz = LEFT
 - Sunday Lecture = LEFT
-- Homework = LEFT
+- Homework1 = LEFT
+- Homework2 = LEFT
 - Test = LEFT
 
 Trees = PARTIAL LEFT
 - Teachable = DONE
 - Quiz = DONE
 - Sunday Lecture = 1/2 DONE
-- Homework = SOME Homework
+- Homework1 = SOME Homework
+- Homework2 = SOME Homework
 - Test = LEFT
 
 Graphs = PARTIAL LEFT
 - Teachable = DONE
 - Quiz = LEFT
 - Sunday Lecture = 1/2 DONE
-- Homework = LEFT
+- Homework1 = LEFT
+- Homework2 = LEFT
 - Test = LEFT
 
 Strings/Tries = PARTIAL LEFT
 - Teachable = DONE
 - Quiz = LEFT
 - Sunday Lecture = LEFT
-- Homework = LEFT
+- Homework1 = LEFT
+- Homework2 = LEFT
 - Test = LEFT
 
 Dynamic Programming = PARTIAL LEFT
 - Teachable = DONE
 - Quiz = LEFT
 - Sunday Lecture = LEFT
-- Homework = LEFT
+- Homework1 = LEFT
+- Homework2 = LEFT
 - Test = LEFT
 
 Scalable Systems = PARTIAL LEFT
 - Teachable = DONE
 - Quiz = LEFT
 - Sunday Lecture = LEFT
-- Homework = LEFT
+- Homework1 = LEFT
+- Homework2 = LEFT
 - Test = LEFT
 
 Concurrency = PARTIAL LEFT
 - Teachable = DONE
 - Quiz = DONE
 - Sunday Lecture = LEFT
-- Homework = LEFT
+- Homework1 = LEFT
+- Homework2 = LEFT
 - Test = LEFT
 
 AdHoc Problems = PARTIAL LEFT
 - Teachable = DONE
 - Quiz = DONE
 - Sunday Lecture = LEFT
-- Homework = LEFT
+- Homework1 = DONE (Got Files)
+- Homework2 = LEFT
 - Test = LEFT
 
 Object Oriented Modelling/Design Patterns = PARTIAL LEFT
 - Teachable = DONE
 - Quiz = LEFT
 - Sunday Lecture = LEFT
-- Homework = LEFT
+- Homework1 = LEFT
+- Homework2 = LEFT
 - Test = LEFT
 
 Behavioral = FULL LEFT (3 hour video)
 - Teachable = DONE
 - Quiz = LEFT
 - Sunday Lecture = LEFT
-- Homework = LEFT
+- Homework1 = LEFT
+- Homework2 = LEFT
 - Test = LEFT
 
 

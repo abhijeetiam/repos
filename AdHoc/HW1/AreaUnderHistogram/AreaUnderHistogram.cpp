@@ -190,7 +190,35 @@ Suggestions :
 	The “Suggested Time” is the time expected to complete this question during a real - life interview, not now in homework i.e.For the first attempt of a given homework problem, the focus should be to understand what the problem is asking, what approach you are using, coding it, as well as identifying any gaps that you can discuss during a TA session.
 
 	Take your time, but limit yourself to 2 one hour sessions for most problems.
-	*/
+
+
+void popBarAndCheckArea( stack<int> &store, const vector<long long int> &H, int l, int r, int i, long long int &maxArea ) 
+{
+	// cout << "store size before pop: " << store.size() << endl;
+	int topVal = store.top();
+	store.pop();
+	long long int leftIdx = store.empty() ? l-1:store.top(), rightIdx = i;
+	long long int area = H[ topVal ]*( rightIdx-leftIdx -1 );
+	// cout << "topVal, left, right: " << topVal << ',' << leftIdx << ',' << rightIdx << endl;
+	// cout << "i, area: " << i << ',' << area << endl;
+	maxArea = max( maxArea, area );
+	// maxArea = max( maxArea, H[ topVal ]*( rightIdx-leftIdx -1 ) );
+}
+
+long long int findMaxPossibleArea( const vector<long long int> &H, int l, int r ) {
+	stack<int> store;
+	long long int maxArea = 0;
+	int i = l;
+	for( ; i<=r; ++i ) {
+		while( !store.empty() && H[i]<H[store.top()] ) popBarAndCheckArea( store, H, l, r, i, maxArea );
+		// cout << "push: " << i << endl;
+		store.push( i );
+	}
+	while( !store.empty() )  popBarAndCheckArea( store, H, l, r, i, maxArea );
+	return maxArea;
+}
+
+*/
 
 
 #include <iostream>

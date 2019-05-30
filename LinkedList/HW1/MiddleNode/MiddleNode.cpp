@@ -62,6 +62,18 @@ Suggested time in interview : 20 minutes.
 The “Suggested Time” is the time expected to complete this question during a real - life interview, not now in homework 
 i.e.For the first attempt of a given homework problem, the focus should be to understand what the problem is asking, what approach you are using,
 coding it, as well as identifying any gaps that you can discuss during a TA session.Take your time, but limit yourself to 2 one hour sessions for most problems.
+
+LinkedListNode* find_middle_node(LinkedListNode* head) {
+	LinkedListNode *slow = head, *fast = head;
+
+	while (fast && fast->next) {
+		slow = slow->next;
+		fast = fast->next->next;
+	}
+
+	return slow;
+}
+
 */
 
 #include <iostream>

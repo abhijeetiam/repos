@@ -60,6 +60,34 @@ Suggested time in interview : 30 minutes.
 The “Suggested Time” is the time expected to complete this question during a real - life interview, not now in homework
 i.e.For the first attempt of a given homework problem, the focus should be to understand what the problem is asking, what approach you are using, 
 coding it, as well as identifying any gaps that you can discuss during a TA session.Take your time, but limit yourself to 2 one hour sessions for most problems.
+
+LinkedListNode* swap_nodes( LinkedListNode* head, int k ) 
+{
+	if( !head || !head->next ) return head;
+
+	LinkedListNode *c1 = head, *p1 = NULL;
+	while( --k>0 ) {
+		p1 = c1;
+		c1 = c1->next;
+	}
+
+	LinkedListNode *c2 = head, *p2 = NULL, *tmp = c1;
+	while( tmp->next ) {
+		tmp = tmp->next;
+		p2 = c2;
+		c2 = c2->next;
+	}
+
+	if( p1 ) p1->next = c2;
+	else head = c2;
+
+	if( p2 ) p2->next = c1;
+	else head = c1;
+
+	swap( c1->next, c2->next );
+	return head;
+}
+
 */
 
 #include <iostream>

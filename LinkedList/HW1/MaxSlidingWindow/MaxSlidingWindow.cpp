@@ -81,6 +81,25 @@ The “Suggested Time” is the time expected to complete this question during a rea
 not now in homework i.e.For the first attempt of a given homework problem, the focus should be to understand what
 the problem is asking, what approach you are using, coding it, as well as identifying any gaps that you can discuss
 during a TC session.Take your time, but limit yourself to 2 one hour sessions for most problems.
+
+vector<int> max_in_sliding_window(vector<int> arr, int w) {
+	deque<int> largest_indexes;
+
+	vector<int> max_elements;
+	for (int i = 0; i < arr.size(); i++) {
+		while (!largest_indexes.empty() && arr[i] > arr[largest_indexes.back()]) {
+			largest_indexes.pop_back();
+		}
+		largest_indexes.push_back(i);
+		if (i >= w - 1) {
+			while (largest_indexes.front() <= i - w) largest_indexes.pop_front();
+			max_elements.push_back(arr[largest_indexes.front()]);
+		}
+	}
+
+	return max_elements;
+}
+
 */
 
 //#include <bits/stdc++.h>

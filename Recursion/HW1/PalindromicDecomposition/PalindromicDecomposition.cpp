@@ -152,31 +152,48 @@ bool isPalindrome(string str)
 	return true;
 }
 
-void find_all_palindromic_decompositions(int start, int len, string str, string currStr, string& resStr, vector<string>& res)
+void find_all_palindromic_decompositions(int start, string& str, string& currStr, vector<string>& res)
 {
-	cout << "ENTRY start = " << start << ", len = " << len << ", str = " << str << 
-			", str.length() = " << str.length() << ", currStr = " << currStr	<< ", resStr = " << resStr << endl;
+	string tempStr;
 
-	if (!currStr.empty())
+	cout << "ENTRY start = " << start << ", len = " << str.length() << ", str = " << str << 
+			", currStr = " << currStr << endl;
+	
+	int len = str.length();
+
+	if (start >= len)
 	{
-		if (isPalindrome(currStr))
-		{
-			//cout << currStr << " is a palindrome" << endl;
-			currStr = currStr + "|";
-
-			if (resStr.find(currStr) == string::npos)
-			{
-				resStr = resStr + currStr;
-				cout << "resStr = " << resStr << endl;
-			}
-		}
+		res.push_back(currStr);
+		cout << "FINISH RECURSION" << endl;
+		return;
 	}
-
-	while (start + len != str.length())
+	
+	//loop over the string character by character
+	for (int i = start; i < len; i++)
 	{
-		find_all_palindromic_decompositions(start, len + 1, str, str.substr(start, len + 1), resStr, res);
-		start++;
-		len = 0;
+		tempStr = tempStr + str[i];
+		if (isPalindrome(tempStr))
+		{
+			cout << tempStr << "| is a palindrome" << endl;
+			currStr = currStr + tempStr;
+
+			int currLen = currStr.length();
+			if (i + 1 < len)
+			{
+				currStr += "|";
+				currLen++;
+			}
+
+			//Recurse over by advancing the start position
+			find_all_palindromic_decompositions(i+1, str, currStr, res);
+
+			if (i + 1 < len)
+				currStr = currStr.substr(0, currStr.length() - (tempStr.length()+1));
+			else
+				currStr = currStr.substr(0, currStr.length() - tempStr.length());
+			cout << "RECURSE start = " << start << ", len = " << str.length() << ", str = " << str <<
+				", currStr = " << currStr << ", currLen = " << currLen << endl;
+		}
 	}
 }
 
@@ -186,11 +203,8 @@ void find_all_palindromic_decompositions(int start, int len, string str, string 
 vector <string> generate_palindromic_decompositions(string s) {
 
 	vector<string> res;
-	int start = 0;
-	int len = 0;
 	string currStr;
-	string resStr;
-	find_all_palindromic_decompositions(start, len, s, currStr, resStr, res);
+	find_all_palindromic_decompositions(0, s, currStr, res);
 	return res;
 }
 

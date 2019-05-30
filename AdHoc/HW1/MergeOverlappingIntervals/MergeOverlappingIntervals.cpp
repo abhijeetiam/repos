@@ -198,6 +198,38 @@ Suggestions:
 Suggested time in interview: 20 minutes.
 
 The “Suggested Time” is the time expected to complete this question during a real-life interview, not now in homework i.e. For the first attempt of a given homework problem, the focus should be to understand what the problem is asking, what approach you are using, coding it, as well as identifying any gaps that you can discuss during a TA session. Take your time, but limit yourself to 2 one hour sessions for most problems.
+
+bool compare(const vector<int>& lhs, const vector<int>& rhs)
+{
+	return lhs[0] < rhs[0];
+}
+
+vector<vector<int>> getMergedIntervals(vector<vector<int>> inputArray) 
+{
+	sort(inputArray.begin(), inputArray.end(), compare);
+	vector<vector<int>> result;
+	int curr_start = inputArray[0][0];
+	int curr_end = inputArray[0][1];
+
+	for (int i = 1; i < inputArray.size(); ++i) {
+		// current end < new start
+		if (curr_end < inputArray[i][0]) {
+			result.push_back(vector<int>{curr_start, curr_end});
+			curr_start = inputArray[i][0];
+			curr_end = inputArray[i][1];
+		}
+		else if (inputArray[i][1] > curr_end) {
+			// curr_end >= new_start, but check curr_end and new_end
+			curr_end = max(curr_end, inputArray[i][1]);
+			// nothing to push since we are extending current interval
+		}
+	}
+	// push curr start and curr end (the final one)
+	result.push_back(vector<int>{curr_start, curr_end});
+	return result;
+}
+
+
 */
 
 #include <iostream>

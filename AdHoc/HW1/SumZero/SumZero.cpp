@@ -230,13 +230,32 @@ For instance, the prefix sums of the natural numbers are the triangular numbers:
 input numbers	 1	 2	 3	 4	 5	 6	...
 prefix sums		 1	 3	 6	10	15	21	...
 
+vector<int> sumZero(vector<int> arr) {
+	// 1,2,3,4,5,-12   N*N 1,3,6,10,15,3
+	unordered_map<int64_t, int> sum_index;
+	int64_t sum = 0;
+	sum_index[0] = -1;
+	vector<int> result_indexes;
+	for (int i = 0; i < arr.size(); i++) {
+		sum += arr[i];
+		auto it = sum_index.find(sum);
+		if (it != sum_index.end()) {
+			result_indexes.push_back(it->second + 1);
+			result_indexes.push_back(i);
+			return result_indexes;
+		}
+		sum_index[sum] = i;
+	}
 
+	result_indexes.push_back(-1);
+	return result_indexes;
+}
 
 */
 #include <iostream>
 #include <vector>
 #include <unordered_set>
-#include <map>
+#include <unordered_map>
 
 using namespace std;
                                                                                                             
@@ -313,7 +332,7 @@ vector<int> sumZero(vector<int> arr)
 vector<int> sumZeroUsingMap(vector<int> arr)
 {
 	vector<int> res;
-	map<long long, int> prefix_sum;
+	unordered_map<long long, int> prefix_sum;
 	long long sum = 0;
 	bool bFound = false;
 

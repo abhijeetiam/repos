@@ -103,6 +103,34 @@ The “Suggested Time” is the time expected to complete this question during a rea
 For the first attempt of a given homework problem, the focus should be to understand what the problem is asking, what approach you are using, 
 coding it, as well as identifying any gaps that you can discuss during a TC session.Take your time, but limit yourself to 2 one hour sessions 
 for most problems.
+
+
+vector<int> getProductArray(vector<int> nums) {
+	// Write your code here.
+	if (nums.size() == 1) return vector<int>();
+	const int cmod = 1000000007;
+
+	vector<int> res(nums.size(), 1);
+	int64_t product = 1;
+	for (size_t i = 0; i < nums.size(); i++)
+	{
+		res[i] = product;
+		product = (product*nums[i] % cmod);
+	}
+
+	product = 1;
+	for (int i = nums.size() - 1; i >= 0; i--)
+	{
+		int64_t tmp = product * res[i] % cmod;
+		if (tmp < 0) tmp += cmod;
+		res[i] = tmp;
+
+		product = (product*nums[i] % cmod);
+	}
+
+	return res;
+}
+
 */
 
 #include <iostream>
